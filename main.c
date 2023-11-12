@@ -10,6 +10,7 @@
 int main(void)
 {
     int len;
+<<<<<<< HEAD
     int len2;
     unsigned int ui;
     void *addr;
@@ -40,5 +41,20 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
+=======
+
+    len = _printf("Let's try to printf a simple sentence.\n");
+    printf("Length:[%d]\n", len);
+
+    len = _printf("Character:[%c]\n", 'H');
+    printf("Length:[%d]\n", len);
+
+    len = _printf("String:[%s]\n", "I am a string !");
+    printf("Length:[%d]\n", len);
+
+    len = _printf("Percent:[%%]\n");
+    printf("Length:[%d]\n", len);
+
+>>>>>>> c5667061eb4d165d609b65218fd55cf65393f18d
     return (0);
 }
