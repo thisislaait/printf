@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '\0')
 			{
-				break
+				break;
 			}
 
 			if (*format == '%')
@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 				char *str = va_arg(mylist, char*);
 				int str_len = 0;
 
-				while(str[str_len] != '\0'
+				while(str[str_len] != '\0')
 				str++;
 
 
