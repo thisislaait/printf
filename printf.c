@@ -63,7 +63,7 @@ int main()
 _printf("Ntoko\n");
 _printf("%c\n", 'g');
 _printf("%s\n", "string");
-_printf("%%\n",);
+_printf("%%\n");
 
 return (0);
 
