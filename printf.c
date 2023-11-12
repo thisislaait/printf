@@ -58,15 +58,3 @@ int _printf(const char *format, ...)
 			return (char_print);
 			}
 
-int main()
-{
-_printf("Ntoko\n");
-_printf("%c\n", 'g');
-_printf("%s\n", "string");
-_printf("%%\n");
-
-return (0);
-
-}
-
-
