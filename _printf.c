@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stddef.h>
+#include <stdio.h>
 
 /**
  * _printf - Custom printf function
@@ -38,6 +39,10 @@ int _printf(const char *format, ...)
 					count += print_str(args);
 					break;
 				case 'b';
+					count += print_int(args);
+					break;
+				case 'd';
+				case 'i';
 					count += print_int(args);
 					break;
 				case '%':
