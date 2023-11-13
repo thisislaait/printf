@@ -34,10 +34,10 @@ int _printf(const char *format, ...)
 			switch (*ptr)
 			{
 				case 'c':
-					count += print_char(va_arg(args, int));
+					count += print_char(args);
 					break;
 				case 's':
-					count += print_str(va_arg(args, char *));
+					count += print_str(args);
 					break;
 				case 'b':
 				case 'd':
@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
 					count += print_int(args);
 					break;
 				case '%':
-					count += _putchar('%');
+					count += print_percent(args);
 					break;
 				case 'u':
 					count += print_unsigned(args);
@@ -71,4 +71,3 @@ int _printf(const char *format, ...)
 
 	return count;
 }
-
