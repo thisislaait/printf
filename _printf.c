@@ -62,6 +62,9 @@ int _printf(const char *format, ...)
 				case 'S':
 					count += print_S(args);
 					break;
+				case 'p':
+					count += print_p(args);
+					break;
 				default:
 					count += _putchar('%');
 					count += _putchar(*ptr);
