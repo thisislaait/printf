@@ -16,8 +16,6 @@ int _printf(const char *format, ...)
 	va_list args;
 	int count = 0;
 	const char *ptr;
-	char buffer[1024];
-	char *buf_ptr = buffer;
 
 	va_start(args, format);
 
@@ -28,15 +26,7 @@ int _printf(const char *format, ...)
 	{
 		if (*ptr != '%')
 		{
-			if (buf_ptr - buffer < 1023)
-				*buf_ptr++ = *ptr;
-			else
-			{
-				write(1, buffer, buf_ptr - buffer);
-				buf_ptr = buffer;
-				*buf_ptr++ = *ptr;
-				count += 1024;
-			}
+			count += _putchar(*ptr)
 		}
 		else
 		{
@@ -79,18 +69,8 @@ int _printf(const char *format, ...)
 					count += _putchar(*ptr);
 					break;
 			}
-
-			if (buf_ptr - buffer >= 1023)
-			{
-				write(1, buffer, buf_ptr -buffer);
-				buf_ptr = buffer;
-				count += 1024;
-			}
 		}
 	}
-
-	if (buf_ptr > buffer)
-		write(1, buffer, buf_ptr -buffer);
 
 	va_end(args);
 
