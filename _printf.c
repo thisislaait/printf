@@ -25,7 +25,15 @@ int _printf(const char *format, ...)
 	{
 		if (*ptr != '%')
 		{
-			count += _putchar(*ptr);
+			if (buf_ptr - buffer < 1023)
+				*buf_ptr++ = *ptr;
+			else
+			{
+				write(1, buffer, buf_ptr - buffer);
+				buf_ptr = buffer;
+				*buf_ptr++ = *ptr;
+				count += 1024;
+			}
 		}
 		else
 		{
@@ -65,8 +73,18 @@ int _printf(const char *format, ...)
 					count += _putchar(*ptr);
 					break;
 			}
+			/* check buffer sixe after handling specifier */
+			if (buf_ptr - buffer >= 1023)
+			{
+				write(1, buffer, buf_ptr - buffer);
+				buf_ptr = buffer;
+				count += 1024;
+			}
 		}
 	}
+	/* we'll write other remaining characters in the buffer */
+	if (buf_ptr > buffer)
+		write(1, buffer, buf_ptr - buffer);
 
 	va_end(args);
 
