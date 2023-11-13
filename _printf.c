@@ -48,6 +48,18 @@ int _printf(const char *format, ...)
 				case '%':
 					count += print_percent(args);
 					break;
+				case 'u':
+					count += print_unsigned(args);
+					break;
+				case 'o':
+					count += print_octal(args);
+					break;
+				case 'x':
+					count += print_hex_lower(args);
+					break;
+				case 'X':
+					count += print_hex_upper(args);
+					break;
 				default:
 					count += _putchar('%');
 					count += _putchar(*ptr);
@@ -55,6 +67,7 @@ int _printf(const char *format, ...)
 			}
 		}
 	}
+
 	va_end(args);
 
 	return count;
