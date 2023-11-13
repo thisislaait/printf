@@ -45,20 +45,18 @@ int _printf(const char *format, ...)
 			switch (*ptr)
 			{
 				case 'c':
-					count += print_char(args);
+					count += print_char(va_arg(args, int));
 					break;
 				case 's':
-					count += print_str(args);
+					count += print_str(va_arg(args. char*));
 					break;
 				case 'b':
-					count += print_int(args);
-					break;
 				case 'd':
 				case 'i':
 					count += print_int(args);
 					break;
 				case '%':
-					count += print_percent(args);
+					count += _putchar('%');
 					break;
 				case 'u':
 					count += print_unsigned(args);
@@ -73,17 +71,34 @@ int _printf(const char *format, ...)
 					count += print_hex_upper(args);
 					break;
 				default:
-					count += _putchar('%');
-					count += _putchar(*ptr);
+					if (buf_ptr - buffer < 1023)
+						*buf_ptr++ = '%';
+					else
+					{
+						 write(1, buffer, buf_ptr - buffer);
+						 buf_ptr = buffer;
+						 *buf_ptr++ = '%';
+						 count += 1024;
+					}
+					if (buf_ptr - buffer >= 1023)
+						*buf_ptr++ = *ptr;
+					else
+					{
+						write(1, buffer, buf_ptr - buffer);
+						buf_ptr = buffer;
+						*buf_ptr++ = *ptr;
+						count += 1024;
+					}
 					break;
+				}
 			}
+			
 			if (buf_ptr - buffer >= 1023)
 			{
-				write(1, buffer, buf_ptr - buffer);
+				write(1, buffer, buf_ptr -buffer);
 				buf_ptr = buffer;
 				count += 1024;
 			}
-		}
 	}
 
 	if (buf_ptr > buffer)
