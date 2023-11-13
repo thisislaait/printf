@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 	{
 		if (*ptr != '%')
 		{
-			count += _putchar(*ptr)
+			count += _putchar(*ptr);
 		}
 		else
 		{
