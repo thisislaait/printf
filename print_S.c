@@ -23,7 +23,7 @@ int print_S(va_list args)
 		{
 			count += _putchar('\\');
 			count += _putchar('x');
-			count += print_hex_upper(*str);
+			count += print_hex_upper(str);
 		}
 		else
 		{

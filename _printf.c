@@ -15,8 +15,6 @@ int _printf(const char *format, ...)
 	va_list args;
 	int count = 0;
 	const char *ptr;
-	char buffer[1024];
-	char *buf_ptr = buffer;
 
 	va_start(args, format);
 
