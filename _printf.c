@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stddef.h>
-#include <unistd.h>
 #include <stdio.h>
 
 /**
@@ -28,16 +27,8 @@ int _printf(const char *format, ...)
 	{
 		if (*ptr != '%')
 		{
-			if (buf_ptr - buffer < 1023)
-				*buf_ptr++ = *ptr;
-			else
-			{
-				write(1, buffer, buf_ptr - buffer);
-				buf_ptr = buffer;
-				*buf_ptr++ = *ptr;
-				count += 1024;
-			}
-		
+
+			count += _putchar(*ptr);
 		}
 		else
 		{
@@ -51,12 +42,14 @@ int _printf(const char *format, ...)
 					count += print_str(args);
 					break;
 				case 'b':
+					count += print_int(args);
+					break;
 				case 'd':
 				case 'i':
 					count += print_int(args);
 					break;
 				case '%':
-					count += _putchar('%');
+					count += print_percent(args);
 					break;
 				case 'u':
 					count += print_unsigned(args);
@@ -70,41 +63,18 @@ int _printf(const char *format, ...)
 				case 'X':
 					count += print_hex_upper(args);
 					break;
-				default:
-					if (buf_ptr - buffer < 1023)
-						*buf_ptr++ = '%';
-					else
-					{
-						 write(1, buffer, buf_ptr - buffer);
-						 buf_ptr = buffer;
-						 *buf_ptr++ = '%';
-						 count += 1024;
-					}
-					if (buf_ptr - buffer >= 1023)
-						*buf_ptr++ = *ptr;
-					else
-					{
-						write(1, buffer, buf_ptr - buffer);
-						buf_ptr = buffer;
-						*buf_ptr++ = *ptr;
-						count += 1024;
-					}
+				case 'S':
+					count += print_S(args);
 					break;
-				}
+				default:
+					count += _putchar('%');
+					count += _putchar(*ptr);
+					break;
 			}
-			
-			if (buf_ptr - buffer >= 1023)
-			{
-				write(1, buffer, buf_ptr -buffer);
-				buf_ptr = buffer;
-				count += 1024;
-			}
+		}
 	}
-
-	if (buf_ptr > buffer)
-		write(1, buffer, buf_ptr - buffer);
 
 	va_end(args);
 
-	return count + (buf_ptr - buffer);
+	return count;
 }
