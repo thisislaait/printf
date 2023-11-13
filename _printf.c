@@ -59,6 +59,9 @@ int _printf(const char *format, ...)
 				case 'X':
 					count += print_hex_upper(args);
 					break;
+				case 'S':
+					count += print_S(args);
+					break;
 				default:
 					count += _putchar('%');
 					count += _putchar(*ptr);
