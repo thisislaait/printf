@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stddef.h>
+#include <unistd.h>
 #include <stdio.h>
 
 /**
@@ -15,6 +16,8 @@ int _printf(const char *format, ...)
 	va_list args;
 	int count = 0;
 	const char *ptr;
+	char buffer[1024];
+	char *buf_ptr = buffer;
 
 	va_start(args, format);
 
@@ -34,6 +37,7 @@ int _printf(const char *format, ...)
 				*buf_ptr++ = *ptr;
 				count += 1024;
 			}
+		
 		}
 		else
 		{
@@ -73,7 +77,6 @@ int _printf(const char *format, ...)
 					count += _putchar(*ptr);
 					break;
 			}
-			/* check buffer sixe after handling specifier */
 			if (buf_ptr - buffer >= 1023)
 			{
 				write(1, buffer, buf_ptr - buffer);
@@ -82,11 +85,11 @@ int _printf(const char *format, ...)
 			}
 		}
 	}
-	/* we'll write other remaining characters in the buffer */
+
 	if (buf_ptr > buffer)
 		write(1, buffer, buf_ptr - buffer);
 
 	va_end(args);
 
-	return count;
+	return count + (buf_ptr - buffer);
 }
