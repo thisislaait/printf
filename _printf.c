@@ -38,11 +38,11 @@ int _printf(const char *format, ...)
 				case 's':
 					count += print_str(args);
 					break;
-				case 'b';
+				case 'b':
 					count += print_int(args);
 					break;
-				case 'd';
-				case 'i';
+				case 'd':
+				case 'i':
 					count += print_int(args);
 					break;
 				case '%':
