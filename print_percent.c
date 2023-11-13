@@ -3,10 +3,12 @@
 
 /**
  * print_percent - Print a percent sign
- * @args: va_list (unused)
+ * @args: Argument list (unused)
+ *
+ * Return: Always returns 1 (for the percent sign)
  */
-void print_percent(va_list args)
+int print_percent(va_list args)
 {
-    (void)args; /* unused */
-    _putchar('%');
+	(void)args; /* Unused parameter */
+	return _putchar('%');
 }

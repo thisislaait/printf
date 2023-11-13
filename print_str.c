@@ -3,14 +3,20 @@
 
 /**
  * print_str - Print a string
- * @args: va_list containing the string to print
+ * @args: Argument list containing the string to be printed
+ *
+ * Return: Number of characters printed
  */
-void print_str(va_list args)
+int print_str(va_list args)
 {
-    char *str = va_arg(args, char*);
-    while (*str)
-    {
-        _putchar(*str);
-        str++;
-    }
+	char *str = va_arg(args, char *);
+	int count = 0;
+
+	while (*str)
+	{
+		count += _putchar(*str);
+		str++;
+	}
+
+	return count;
 }
