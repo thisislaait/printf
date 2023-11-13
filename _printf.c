@@ -45,10 +45,10 @@ int _printf(const char *format, ...)
 			switch (*ptr)
 			{
 				case 'c':
-					count += print_char(va_arg(args, int));
+					count += print_char(args);
 					break;
 				case 's':
-					count += print_str(va_arg(args. char*));
+					count += print_str(args);
 					break;
 				case 'b':
 				case 'd':
