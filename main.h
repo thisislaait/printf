@@ -31,7 +31,7 @@ typedef struct printHandler
 {
 	char s;
 	int (*ptr)(va_list args, flags_t *ptr);
-} ph;
+} sh;
 
 
 char print_char(char character);
