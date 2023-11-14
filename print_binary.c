@@ -8,10 +8,10 @@
  *Return: null or the binary form of arg
  */
 
-char *print_binary(unsigned int num) 
+char *print_binary(va_list args) 
 {
 	char *binary;
-	unsigned int num  = 0;
+	unsigned int num  = va_arg(args, char)
 
 	
 	*binary = malloc(sizeof(char) * (sizeof(unsigned int) * CHAR_BIT + 1)); /*assigns space in memory to store length of int + null byte*/
