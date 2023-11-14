@@ -17,5 +17,5 @@ int print_unsigned(va_list args)
 	sprintf(buffer, "%u", num);
 	count += print_str_arg(buffer);
 
-	return count;
+	return (count);
 }
