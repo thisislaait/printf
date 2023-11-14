@@ -12,9 +12,12 @@ int print_int(va_list args);
 int print_str_arg(const char *str);
 char *print_binary(unsigned int num);
 int print_unsigned(va_list args);
-int print_octal(va_list args);
-int print_hex_lower(va_list args);
-int print_hex_upper(va_list args);
+int print_octal(va_list args, int alt);
+int print_hex_lower(va_list args, int alt);
+int print_hex_upper(va_list args, int alt);
 int print_S(va_list args);
 int print_p(va_list args);
+int print_signed(va_list args);
+
+
 #endif /* MAIN_H */

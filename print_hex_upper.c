@@ -8,14 +8,20 @@
  *
  * Return: Number of characters printed
  */
-int print_hex_upper(va_list args)
+int print_hex_upper(va_list args, int alt)
 {
 	unsigned int num = va_arg(args, unsigned int);
 	char buffer[32];
 	int count = 0;
 
+	if (alt)
+	{
+		count += _putchar('0');
+		count +=_putchar('X');
+	}
+
 	sprintf(buffer, "%X", num);
 	count += print_str_arg(buffer);
 
-	return count;
+	return (count);
 }

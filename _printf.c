@@ -39,11 +39,13 @@ int _printf(const char *format, ...)
 				case 's':
 					count += print_str(args);
 					break;
-				case 'b':
+				case 'b'
+					count += print_int(args);
+					break;
 					count += print_str(args);
 				case 'd':
 				case 'i':
-					count += print_int(args);
+					count += print_signed(args);
 					break;
 				case '%':
 					count += print_percent(args);
@@ -52,13 +54,13 @@ int _printf(const char *format, ...)
 					count += print_unsigned(args);
 					break;
 				case 'o':
-					count += print_octal(args);
+					count += print_octal(args, 0);
 					break;
 				case 'x':
-					count += print_hex_lower(args);
+					count += print_hex_lower(args, 0);
 					break;
 				case 'X':
-					count += print_hex_upper(args);
+					count += print_hex_upper(args, 0);
 					break;
 				case 'S':
 					count += print_S(args);
@@ -76,5 +78,5 @@ int _printf(const char *format, ...)
 
 	va_end(args);
 
-	return count;
+	return (count);
 }
