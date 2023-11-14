@@ -1,14 +1,17 @@
 #include "main.h"
-#include <stdarg.h>
 
 /**
  * print_percent - Print a percent sign
- * @args: Argument list (unused)
  *
- * Return: Always returns 1 (for the percent sign)
+ * This function prints a percent sign and returns the number of characters
+ * printed, which is always 1 (for the percent sign).
+ *
+ * Return: Number of characters printed (always 1)
  */
-int print_percent(va_list args)
+char print_percent(void)
 {
-	(void)args; /* Unused parameter */
-	return _putchar('%');
+	char percent = '%';
+	_putchar(percent);
+	
+	return (1);
 }

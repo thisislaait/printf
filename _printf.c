@@ -1,81 +1,32 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stddef.h>
 
 /**
- * _printf - Custom printf function
- * @format: Format string with conversion specifiers
+ * _printf - Produces output according to a format
+ * @format: Character string containing zero or more directives
  *
- * Return: Number of characters printed (excluding null byte)
+ * Return: Number of characters printed (excluding the null byte)
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
 	int count = 0;
-	const char *ptr;
-
-	va_start(args, format);
-
-	if (format == NULL)
+	
+	while (*format)
 	{
-		va_end(args);
-		return (-1);
-	}
-
-	for (ptr = format; *ptr != '\0'; ptr++)
-	{
-		if (*ptr != '%')
+		if (*format == '%' && (*(format + 1) == 'c' || *(format + 1) == 's' || *(format + 1) == '%'))
 		{
-			count += _putchar(*ptr);
+			if (*(format + 1) == 'c')
+				count += print_char(*((char *)(format + 2)));
+			else if (*(format + 1) == 's')
+				count += print_str((const char *)(format + 2));
+			else
+				count += print_percent();
+			format += 2; /*move to the next character*/
 		}
 		else
 		{
-			ptr++; /* Move to the character after '%' */
-			switch (*ptr)
-			{
-				case 'c':
-					count += print_char(args);
-					break;
-				case 's':
-					count += print_str(args);
-					break;
-				case 'b':
-					count += print_str(args);
-					break;
-				case 'd':
-				case 'i':
-					count += print_signed(args);
-					break;
-				case '%':
-					count += print_percent(args);
-					break;
-				case 'u':
-					count += print_unsigned(args);
-					break;
-				case 'o':
-					count += print_octal(args, 0);
-					break;
-				case 'x':
-					count += print_hex_lower(args, 0);
-					break;
-				case 'X':
-					count += print_hex_upper(args, 0);
-					break;
-				case 'S':
-					count += print_S(args);
-					break;
-				case 'p':
-					count += print_p(args);
-					break;
-				default:
-					count += _putchar('%');
-					count += _putchar(*ptr);
-					break;
-			}
+			count += _putchar(*format);
+			format++;
 		}
 	}
-
-	va_end(args);
-
 	return (count);
 }
