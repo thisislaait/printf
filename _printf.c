@@ -1,39 +1,26 @@
 #include "main.h"
 #include <stdarg.h>
 
-/**
- * _printf - Produces output according to a format
- * @format: Character string containing zero or more directives
- *
- * Return: Number of characters printed (excluding the null byte)
- */
 int _printf(const char *format, ...)
 {
-	int count = 0;
-	va_list args;
+    int count = 0;
+    va_list args;
 
-	va_start(args,format);
-	
-	while (*format)
-	{
-		if (*format == '%' && (*(format + 1) == 'c' || *(format + 1) == 's' || *(format + 1) == '%' || *(format + 1) == 'd' || *(format + 1) == 'i'))
-		{
-			if (*(format + 1) == 'c')
-				count += print_char(va_arg(args, int));
-			else if (*(format + 1) == 's')
-				count += print_str(va_arg(args,char*));
-			else if (*(format + 1) == '%')
-				count += print_percent();
-			else if (*(format + 1) == 'd' || *(format + 1) == 'i')
-				count += print_int(va_arg(args, int));
-			format += 2; /*move to the next character*/
-		}
-		else
-		{
-			count += _putchar(*format);
-			format++;
-		}
-	}
-	va_end(args);
-	return count;
+    va_start(args, format);
+
+    while (*format)
+    {
+        if (*format == '%' && handle_format(*(format + 1), args, &count))
+        {
+            format += 2; /* Move to the next character after processing format specifier */
+        }
+        else
+        {
+            count += _putchar(*format);
+            format++;
+        }
+    }
+
+    va_end(args);
+    return count;
 }
