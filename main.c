@@ -9,9 +9,7 @@
  */
 int main(void)
 {
-<<<<<<< HEAD
     int len;
-<<<<<<< HEAD
     int len2;
     unsigned int ui;
     void *addr;
@@ -42,10 +40,9 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
-=======
-=======
-	int len;
->>>>>>> 3d4542d4eeb78102662211ccb29da45ec26c7952
+
+	/*int len;
+
 
 	len = _printf("Let's try to printf a simple sentence.\n");
 	printf("Length:[%d]\n", len);
@@ -61,11 +58,6 @@ int main(void)
 
 	_printf("%b/n", 98);
 
-	return (0);
-
-<<<<<<< HEAD
->>>>>>> c5667061eb4d165d609b65218fd55cf65393f18d
+	return (0);*/
     return (0);
-=======
->>>>>>> 3d4542d4eeb78102662211ccb29da45ec26c7952
 }

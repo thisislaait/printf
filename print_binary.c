@@ -27,4 +27,4 @@ char *print_binary(va_list args)
   	}
   	binary[i] = '\0';
   	return (binary);
-} 
+}
