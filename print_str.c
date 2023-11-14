@@ -19,4 +19,4 @@ int print_str(va_list args)
 	}
 
 	return count;
-}
+

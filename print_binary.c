@@ -1,19 +1,30 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdarg.h>
 
 /**
- * print_binary - Print an unsigned integer in binary format
- * @num: Unsigned integer to be printed
- *
- * Return: Number of characters printed
+ *print_binary :  the unsigned int argument is converted to binary
+ *@arg: an unsigned integer
+ *Return: null or the binary form of arg
  */
-int print_binary(unsigned int num)
+
+char *print_binary(va_list args) 
 {
-	if (num == 0)
-		return _putchar('0');
+	char *binary;
+	unsigned int num  = va_arg(args, char)
 
-	if (num == 1)
-		return _putchar('1');
+	
+	*binary = malloc(sizeof(char) * (sizeof(unsigned int) * CHAR_BIT + 1)); /*assigns space in memory to store length of int + null byte*/
+  if (binary == NULL) 
+	{
+    	return (NULL);
+  	}
 
-	return print_binary(num >> 1) + _putchar('0' + (num & 1));
-}
+  while (num > 0) 
+	{
+    	binary[i++] = (num & 1) + '0';  /* checks if int is odd and then saves the remainder to binary*/
+    	num >>= 1;
+  	}
+  	binary[i] = '\0';
+  	return (binary);
+} 

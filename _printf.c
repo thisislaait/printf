@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 	{
 		va_end(args);
-		return -1;
+		return (-1);
 	}
 
 	for (ptr = format; *ptr != '\0'; ptr++)
@@ -39,9 +39,10 @@ int _printf(const char *format, ...)
 				case 's':
 					count += print_str(args);
 					break;
-				case 'b':
+				case 'b'
 					count += print_int(args);
 					break;
+					count += print_str(args);
 				case 'd':
 				case 'i':
 					count += print_signed(args);
