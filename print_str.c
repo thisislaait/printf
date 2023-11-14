@@ -18,5 +18,9 @@ int print_str(va_list args)
 		str++;
 	}
 
+<<<<<<< HEAD
 	return count;
+=======
+	return (count);
+>>>>>>> 847f9bcf73fb5b9f153c4512f60e04d32265fb33
 }

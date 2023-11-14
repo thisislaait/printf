@@ -27,4 +27,4 @@ char *print_binary(unsigned int num)
   	}
   	binary[i] = '\0';
   	return (binary);
-} 
+}
