@@ -6,11 +6,11 @@
 
 /**
  *print_binary :  the unsigned int argument is converted to binary
- *@arg: an unsigned integer
+ *@num: an unsigned integer
  *Return: null or the binary form of arg
  */
 
-char *print_binary(unsigned int num) 
+int print_binary(unsigned int num)
 {
 	char *binary;
 	int i = 0;
@@ -18,7 +18,7 @@ char *print_binary(unsigned int num)
 	binary = malloc(sizeof(char) * (sizeof(unsigned int) * CHAR_BIT + 1)); /*assigns space in memory to store length of int + null byte*/
 	if (binary == NULL) 
 	{
-    	return (NULL);
+    	return (0);
   	}
 	while (num > 0) 
 	{
@@ -26,5 +26,10 @@ char *print_binary(unsigned int num)
     	num >>= 1;
   	}
   	binary[i] = '\0';
-  	return (binary);
+	for (int j = i - 1; j>=0; j--)
+	{
+		_putchar(binary[j]);
+	}
+	free(binary);
+  	return (i);
 }

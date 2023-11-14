@@ -39,7 +39,7 @@ int print_str(const char *str);
 char print_percent(void);
 int print_int(int n);
 int handle_format(char specifier, va_list args, int *count);
-char *print_binary(unsigned int num);
+int print_binary(unsigned int num, flags_t *ptr);
 int print_unsigned(va_list args, flags_t *ptr);
 int print_octal(va_list args, flags_t *ptr);
 int print_hex_lower(va_list args, flags_t *ptr);
