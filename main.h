@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include <stdarg.h>
+#include <stdlib.h>
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -40,5 +41,6 @@ char print_percent(void);
 int print_int(int n);
 int handle_format(char specifier, va_list args, int *count);
 char *print_binary(unsigned int num);
+int print_address(va_list args, flags_t *ptr);
 
 #endif /* MAIN_H */
