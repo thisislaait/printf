@@ -3,15 +3,19 @@
 
 /**
  * print_hex - Print a hexadecimal number (lowercase)
- * @num: The hexadecimal number to be printed
- *
+ * @args: The argument list containing the hexadecimal number
+ * @ptr: Pointer to flags_t structure (unused in this function)
  * Return: Number of characters printed
  */
-int print_hex_lower(unsigned int num)
+int print_hex_lower(va_list args, flags_t *ptr)
 {
-	char *hex_digits = "0123456789abcdef";
+	(void)ptr;
+	unsigned int num;
 	char hex_buffer[40]; /*  Assuming a reasonable maximum length */
 	int count = 0;
+
+	num = va_arg(args, unsigned int);
+
 	if (num == 0)
 	{
 		_putchar('0');
@@ -19,7 +23,7 @@ int print_hex_lower(unsigned int num)
 	}
 	while (num > 0)
 	{
-		hex_buffer[count++] = hex_digits[num % 16];
+		hex_buffer[count++] = "0123456789abcdef"[num % 16];
 		num /= 16;
 	}
 	while (--count >= 0)

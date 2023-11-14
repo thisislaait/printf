@@ -31,7 +31,7 @@ typedef struct printHandler
 {
 	char s;
 	int (*ptr)(va_list args, flags_t *ptr);
-} sh;
+} print_handler_t;
 
 
 char print_char(char character);
@@ -40,5 +40,9 @@ char print_percent(void);
 int print_int(int n);
 int handle_format(char specifier, va_list args, int *count);
 char *print_binary(unsigned int num);
+int print_unsigned(va_list args, flags_t *ptr);
+int print_octal(va_list args, flags_t *ptr);
+int print_hex_lower(va_list args, flags_t *ptr);
+int print_hex_upper(va_list args, flags_t *ptr);
 
 #endif /* MAIN_H */

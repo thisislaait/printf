@@ -3,13 +3,15 @@
 
 /**
  * print_hex_upper - Print a hexadecimal number (uppercase)
- * @num: The hexadecimal number to be printed
+ * @args: The argument list containing the hexadecimal number
+ * @ptr: Pointer to flags_t structure (unused in this function)
  *
  * Return: Number of characters printed
  */
-int print_hex_upper(unsigned int num)
+int print_hex_upper(va_list args, flags_t *ptr)
 {
-	char *hex_digits = "0123456789ABCDEF";
+	(void)ptr;
+	unsigned int num = va_arg(args, unsigned int);
 	char hex_buffer[40]; /* Assuming a reasonable maximum length */
 	int count = 0;
 	if (num == 0)
@@ -19,7 +21,7 @@ int print_hex_upper(unsigned int num)
 	}
 	while (num > 0)
 	{
-		hex_buffer[count++] = hex_digits[num % 16];
+		hex_buffer[count++] = "0123456789ABCDEF"[num % 16];
 		num /= 16;
 	}
 	while (--count >= 0)

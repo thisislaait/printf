@@ -1,28 +1,32 @@
 #include "main.h"
+#include <stdarg.h>
 
 /**
- * print_octal - Print an unsigned integer in octal format
- * @num: The unsigned integer to be printed
+ * print_octal - Print an octal number
+ * @args: The argument list containing the octal number
+ * @ptr: Pointer to flags_t structure (unused in this function)
  *
  * Return: Number of characters printed
  */
-int print_octal(unsigned int num)
+int print_octal(va_list args, flags_t *ptr)
 {
+	(void)ptr;
+	unsigned int num = va_arg(args, unsigned int);
+	int count = 0;
+	int octal_num[100]; /* Assuming a reasonable maximum length */
 	if (num == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
-	int count = 0;
-	char buffer[20];
 	while (num > 0)
 	{
-		buffer[count++] = (num % 8) + '0';
+		octal_num[count++] = num % 8;
 		num /= 8;
 	}
-	for (int i = count - 1; i >= 0; i--)
+	while (--count >= 0)
 	{
-		_putchar(buffer[i]);
+		_putchar(octal_num[count] + '0');
 	}
 	return (count);
 }
