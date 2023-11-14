@@ -1,4 +1,4 @@
-
+#ifndef MAIN_H
 #define MAIN_H
 
 #include <stdarg.h>
@@ -17,5 +17,4 @@ int print_hex_lower(va_list args);
 int print_hex_upper(va_list args);
 int print_S(va_list args);
 int print_p(va_list args);
-
 #endif /* MAIN_H */
