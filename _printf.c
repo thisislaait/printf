@@ -40,9 +40,8 @@ int _printf(const char *format, ...)
 					count += print_str(args);
 					break;
 				case 'b':
-					count += print_int(args);
-					break;
 					count += print_str(args);
+					break;
 				case 'd':
 				case 'i':
 					count += print_signed(args);
