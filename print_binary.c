@@ -3,25 +3,34 @@
 #include "main.h"
 #include <stdio.h>
 
-char *print_binary(unsigned int n) 
-{
-  char *binary = malloc(sizeof(char) * (sizeof(unsigned int) * CHAR_BIT + 1));
-  unsigned int i;
+/**
+  * print_binary - a function to convert unsigned
+  * integers to binary
+  * @n: an unsigned int
+  * Return: 0 or a binary
+  */
 
-  if (binary == NULL) 
-  {
-    return NULL;
-  }
+char *print_binary(unsigned int n)
+{
+	char *binary;
+	unsigned int i;
+
+	*binary = malloc(sizeof(char) * (sizeof(unsigned int) * CHAR_BIT + 1));
+
+	if (binary == NULL)
+	{
+		return (NULL);
+	}
 	i = 0;
 
-  while (n > 0) 
-  {
-    binary[i++] = (n & 1) + '0';
-    n >>= 1;
-  }
+	while (n > 0)
+	{
+	binary[i++] = (n & 1) + '0';
+	n >>= 1;
+	}
 
-  binary[i] = '\0';
-  puts(binary);
+	binary[i] = '\0';
+	puts(binary);
 
-  return (binary);
+	return (binary);
 }
