@@ -14,6 +14,7 @@ int _printf(const char *format, ...);
  * @space: flag for the ' ' character
  * @hash: flag for the '#' character
  */
+typedef int make_iso_compilers_happy;
 typedef struct flags
 {
 	int add;
@@ -40,8 +41,6 @@ int print_str(const char *str);
 char print_percent(void);
 int print_int(int n);
 int handle_format(char specifier, va_list args, int *count);
-char *print_binary(unsigned int num);
-int print_address(va_list args, flags_t *ptr);
-
-
+char *print_binary(unsigned int n);
+char print_address(char *ptr);
 #endif /* MAIN_H */

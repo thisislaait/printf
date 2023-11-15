@@ -1,11 +1,27 @@
+#include <limits.h>
+#include <stdlib.h>
+#include "main.h"
 #include <stdio.h>
-#include <stdarg.h>
 
-int print_binary(unsigned int value) {
-    int count = 0;
-    if (value > 1) {
-        count += print_binary(value / 2);
-    }
-    putchar(value % 2 + '0');
-    return count + 1;
+char *print_binary(unsigned int n) 
+{
+  char *binary = malloc(sizeof(char) * (sizeof(unsigned int) * CHAR_BIT + 1));
+  unsigned int i;
+
+  if (binary == NULL) 
+  {
+    return NULL;
+  }
+	i = 0;
+
+  while (n > 0) 
+  {
+    binary[i++] = (n & 1) + '0';
+    n >>= 1;
+  }
+
+  binary[i] = '\0';
+  puts(binary);
+
+  return (binary);
 }

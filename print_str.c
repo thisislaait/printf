@@ -16,6 +16,5 @@ int print_str(const char *str)
 		count++;
 		str++;
 	}
-	
-	return count;
+	return (count);
 }
