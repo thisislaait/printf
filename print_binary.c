@@ -15,7 +15,7 @@ char *print_binary(unsigned int n)
 	char *binary;
 	unsigned int i;
 
-	*binary = malloc(sizeof(char) * (sizeof(unsigned int) * CHAR_BIT + 1));
+	binary = malloc(sizeof(char) * (sizeof(unsigned int) * CHAR_BIT + 1));
 
 	if (binary == NULL)
 	{
