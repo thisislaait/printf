@@ -42,8 +42,5 @@ int print_int(int n);
 int handle_format(char specifier, va_list args, int *count);
 char *print_binary(unsigned int num);
 int print_address(va_list args, flags_t *ptr);
-int print_unsigned(va_list args, flags_t *ptr);
-int print_octal(va_list args, flags_t *ptr);
-int print_hex_lower(va_list args, flags_t *ptr);
-int print_hex_upper(va_list args, flags_t *ptr);
+
 #endif /* MAIN_H */
