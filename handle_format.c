@@ -26,7 +26,7 @@ int handle_format(char specifier, va_list args, int *count)
 			/*count += *print_rot13(va_arg(args, flags_t *ptr));*/
 			break;
 		case 'p':
-			*count += print_address(va_arg(args, char*));
+			/*count += print_address(va_arg(args, char*));*/
 			break;
 		default:
 			return (0);  /*Unsupported format specifier*/
