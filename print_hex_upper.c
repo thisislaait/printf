@@ -10,10 +10,12 @@
  */
 int print_hex_upper(va_list args, flags_t *ptr)
 {
+	unsigned int num;
+	num = va_arg(args, unsigned int);
 	(void)ptr;
-	unsigned int num = va_arg(args, unsigned int);
 	char hex_buffer[40]; /* Assuming a reasonable maximum length */
-	int count = 0;
+	int count;
+	count = 0;
 	if (num == 0)
 	{
 		_putchar('0');

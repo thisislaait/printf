@@ -13,7 +13,6 @@ int print_hex_lower(va_list args, flags_t *ptr)
 	unsigned int num;
 	char hex_buffer[40]; /*  Assuming a reasonable maximum length */
 	int count = 0;
-
 	num = va_arg(args, unsigned int);
 
 	if (num == 0)

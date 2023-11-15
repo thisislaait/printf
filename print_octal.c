@@ -11,8 +11,10 @@
 int print_octal(va_list args, flags_t *ptr)
 {
 	(void)ptr;
-	unsigned int num = va_arg(args, unsigned int);
-	int count = 0;
+	unsigned int num;
+	num = va_arg(args, unsigned int);
+	int count;
+	count = 0;
 	int octal_num[100]; /* Assuming a reasonable maximum length */
 	if (num == 0)
 	{
