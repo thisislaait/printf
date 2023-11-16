@@ -10,7 +10,6 @@
 int print_str(va_list args, int *count)
 {
 	char *str = va_arg(args, char *);
-	
 	if (str == NULL)
 	{
 		handle_null(count);
