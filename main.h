@@ -44,8 +44,8 @@ int print_str(va_list args, int *count);
 int print_percent(int *count);
 int print_int(va_list args);
 int print_number(int n);
-
-char *print_binary(unsigned int n);
+int print_binary(va_list args);
+int print_binary_recursive(unsigned int n);
 char print_address(char *ptr);
 
 /* Function prototype for handling NULL strings */

@@ -20,7 +20,7 @@ int handle_format(char specifier, va_list args, int *count)
 		case '%':
 			return (print_percent(count));
 		case 'b':
-			*count += *print_binary(va_arg(args, unsigned int));
+			*count += print_binary(args);
 			break;
 		case 'd':
 		case 'i':
