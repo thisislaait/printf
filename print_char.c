@@ -1,14 +1,16 @@
 #include "main.h"
+#include <stdarg.h>
 
 /**
- * print_char - Print a character
- * This function takes a character as an argument and prints it.
- * @character: The character to be printed
- *
- * Return: Number of characters printed (always 1)
+ * print_char - Handles %c specifier
+ * @args: The va_list of arguments
+ * @count: Pointer to the count of characters printed
+ * Return: 1 if specifier is handled, 0 otherwise
  */
-char print_char(char character)
+
+int print_char(va_list args, int *count)
 {
-	_putchar(character);
+	char c = va_arg(args, int);
+	*count += _putchar(c);
 	return (1);
 }

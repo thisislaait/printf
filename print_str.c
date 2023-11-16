@@ -1,20 +1,26 @@
 #include "main.h"
+#include <stdarg.h>
 
 /**
- * print_str - Print a string
- * @str: The string to be printed
- *
- * Return: Number of characters printed
+ * print_str - Handles %s specifier
+ * @args: The va_list of arguments
+ * @count: Pointer to the count of characters printed
+ * Return: 1 if specifier is handled, 0 otherwise
  */
-int print_str(const char *str)
+int print_str(va_list args, int *count)
 {
-	int count = 0;
-
-	while (*str)
+    char *str = va_arg(args, char *);
+    if (str == NULL)
 	{
-		_putchar(*str);
-		count++;
-		str++;
+		handle_null(count);
 	}
-	return (count);
+	else
+	{
+    	while (*str)
+    	{
+        	*count += _putchar(*str);
+        	str++;
+    	}
+	}
+    return (1);
 }
