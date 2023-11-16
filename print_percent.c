@@ -11,7 +11,8 @@
 char print_percent(void)
 {
 	char percent = '%';
+
 	_putchar(percent);
-	
+
 	return (1);
 }

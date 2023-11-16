@@ -10,6 +10,5 @@
 char print_char(char character)
 {
 	_putchar(character);
-	
-	return 1;
+	return (1);
 }
