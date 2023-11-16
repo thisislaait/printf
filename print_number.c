@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
  * print_number - Prints an integer (helper function for print_int)
@@ -15,6 +16,23 @@ int print_number(int n)
         _putchar('0');
         count++;
         return (count);
+    }
+
+    /* Handle the case when n is INT_MIN */
+    if (n == INT_MIN)
+    {
+        count += print_number(n / 10); /* Print the rest of the digits recursively */
+        _putchar('8'); /* Print the last digit of INT_MIN (8) separately */
+        count++;
+        return (count);
+    }
+
+    /* Handle other cases */
+    if (n < 0)
+    {
+        _putchar('-');
+        count++;
+        n = -n;
     }
 
     /* Recursively print digits */
