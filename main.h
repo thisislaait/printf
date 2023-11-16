@@ -35,12 +35,19 @@ typedef struct printHandler
 	int (*ptr)(va_list args, flags_t *ptr);
 } print_handler_t;
 
-
-char print_char(char character);
-int print_str(const char *str);
-char print_percent(void);
-int print_int(int n);
+/* Function prototype for handling specifiers */
 int handle_format(char specifier, va_list args, int *count);
+
+/* Function prototypes for specifier logic */
+int print_char(va_list args, int *count);
+int print_str(va_list args, int *count);
+int print_percent(int *count);
+int print_int(int n);
+
 char *print_binary(unsigned int n);
 char print_address(char *ptr);
+
+/* Function prototype for handling NULL strings */
+void handle_null(int *count);
+
 #endif /* MAIN_H */

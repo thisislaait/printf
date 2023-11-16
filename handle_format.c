@@ -1,20 +1,24 @@
 #include "main.h"
+#include <stdarg.h>
 #include <stdio.h>
 
+/**
+ * handle_format - Handles the format specifier and updates count
+ * @specifier: The format specifier character
+ * @args: The va_list of arguments
+ * @count: Pointer to the count of characters printed
+ * Return: 1 if specifier is handled, 0 otherwise
+ */
 int handle_format(char specifier, va_list args, int *count)
 {
-
 	switch (specifier)
 	{
 		case 'c':
-			*count += print_char(va_arg(args, int));
-			break;
+			return print_char(args, count);
 		case 's':
-			*count += print_str(va_arg(args, char*));
-			break;
+			return print_str(args, count);
 		case '%':
-			*count += print_percent();
-			break;
+			return print_percent( count );
 		case 'b':
 			*count += *print_binary(va_arg(args, unsigned int));
 			break;

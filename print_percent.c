@@ -1,17 +1,12 @@
 #include "main.h"
 
 /**
- * print_percent - Print a percent sign
- *
- * This function prints a percent sign and returns the number of characters
- * printed, which is always 1 (for the percent sign).
- *
- * Return: Number of characters printed (always 1)
+ * print_percent - Handles %% specifier
+ * @count: Pointer to the count of characters printed
+ * Return: 1 if specifier is handled, 0 otherwise
  */
-char print_percent(void)
+int print_percent(int *count)
 {
-	char percent = '%';
-	_putchar(percent);
-	
+	*count += _putchar('%');
 	return (1);
 }
