@@ -35,6 +35,11 @@ typedef struct printHandler
 	int (*ptr)(va_list args, flags_t *ptr);
 } print_handler_t;
 
+/* Declarations for hex digit arrays */
+extern const char hex_digits_uppercase[];
+extern const char hex_digits_lowercase[];
+
+
 /* Function prototype for handling specifiers */
 int handle_format(char specifier, va_list args, int *count);
 
