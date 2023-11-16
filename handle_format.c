@@ -26,6 +26,18 @@ int handle_format(char specifier, va_list args, int *count)
 		case 'i':
 			*count += print_int(args);
 			break;
+		case 'u':
+			*count += print_unsigned(args);
+			break;
+		case 'o':
+			*count += print_octal(args);
+			break;
+		case 'x':
+			*count += print_hex(args, 0);
+			break;
+		case 'X':
+			*count += print_hex(args, 1);
+			break;
 		case 'R':
 			/*count += *print_rot13(va_arg(args, flags_t *ptr));*/
 			break;
