@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
  * print_int - Handles %d and %i specifiers
@@ -15,7 +16,18 @@ int print_int(va_list args)
     {
         _putchar('-');
         count++;
-        num = -num;
+        /* Avoid overflow when negating INT_MIN */
+        if (num == INT_MIN)
+        {
+            count += print_number(-(num + 1)); /* Negate (num + 1) to avoid overflow */
+            _putchar('8'); /* Print the last digit of INT_MIN (8) separately */
+            count++;
+            return (count);
+        }
+        else
+        {
+            num = -num;
+        }
     }
 
     /* Print the number */
