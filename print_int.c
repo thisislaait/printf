@@ -1,33 +1,25 @@
 #include "main.h"
 
 /**
- * print_int - Print an integer
- * @n: The integer to be printed
- *
- * Return: Number of characters printed
+ * print_int - Handles %d and %i specifiers
+ * @args: The va_list of arguments
+ * Return: The number of characters printed
  */
-int print_int(int n)
+int print_int(va_list args)
 {
+    int num = va_arg(args, int);
     int count = 0;
 
     /* Handle negative numbers */
-    if (n < 0)
+    if (num < 0)
     {
-        count += _putchar('-');
-        n = -n;
+        _putchar('-');
+        count++;
+        num = -num;
     }
 
-    /* Handle single-digit numbers */
-    if (n < 10)
-    {
-        count += _putchar(n + '0');
-    }
-    else
-    {
-        /* Recursively print each digit */
-        count += print_int(n / 10);
-        count += _putchar(n % 10 + '0');
-    }
+    /* Print the number */
+    count += print_number(num);
 
-    return count;
+    return (count);
 }

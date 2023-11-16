@@ -42,7 +42,8 @@ int handle_format(char specifier, va_list args, int *count);
 int print_char(va_list args, int *count);
 int print_str(va_list args, int *count);
 int print_percent(int *count);
-int print_int(int n);
+int print_int(va_list args);
+int print_number(int n);
 
 char *print_binary(unsigned int n);
 char print_address(char *ptr);

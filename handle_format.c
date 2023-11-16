@@ -24,7 +24,7 @@ int handle_format(char specifier, va_list args, int *count)
 			break;
 		case 'd':
 		case 'i':
-			*count += print_int(va_arg(args, int));
+			*count += print_int(args);
 			break;
 		case 'R':
 			/*count += *print_rot13(va_arg(args, flags_t *ptr));*/
