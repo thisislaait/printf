@@ -16,11 +16,11 @@ int print_str(va_list args, int *count)
 	}
 	else
 	{
-    	while (*str)
-    	{
-        	*count += _putchar(*str);
-        	str++;
-    	}
+		while (*str)
+		{
+			*count += _putchar(*str);
+			str++;
+		}
 	}
-    return (1);
+	return (1);
 }
