@@ -35,6 +35,11 @@ typedef struct printHandler
 	int (*ptr)(va_list args, flags_t *ptr);
 } print_handler_t;
 
+/* Declarations for hex digit arrays */
+extern const char hex_digits_uppercase[];
+extern const char hex_digits_lowercase[];
+
+
 /* Function prototype for handling specifiers */
 int handle_format(char specifier, va_list args, int *count);
 
@@ -42,9 +47,18 @@ int handle_format(char specifier, va_list args, int *count);
 int print_char(va_list args, int *count);
 int print_str(va_list args, int *count);
 int print_percent(int *count);
-int print_int(int n);
-
-char *print_binary(unsigned int n);
+int print_int(va_list args);
+int print_number(int n);
+int print_binary(va_list args);
+int print_binary_recursive(unsigned int n);
+int print_unsigned(va_list args);
+int print_octal(va_list args);
+int print_hex(va_list args, int uppercase);
+int print_octal_recursive(unsigned int n);
+int print_hex_recursive(unsigned int n, int uppercase);
+int print_string(va_list args);
+int print_pointer(va_list args);
+int print_non_printable(char ch);
 char print_address(char *ptr);
 
 /* Function prototype for handling NULL strings */

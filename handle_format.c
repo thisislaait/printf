@@ -20,17 +20,31 @@ int handle_format(char specifier, va_list args, int *count)
 		case '%':
 			return (print_percent(count));
 		case 'b':
-			*count += *print_binary(va_arg(args, unsigned int));
+			*count += print_binary(args);
 			break;
 		case 'd':
 		case 'i':
-			*count += print_int(va_arg(args, int));
+			*count += print_int(args);
 			break;
-		case 'R':
-			/*count += *print_rot13(va_arg(args, flags_t *ptr));*/
+		case 'u':
+			*count += print_unsigned(args);
+			break;
+		case 'o':
+			*count += print_octal(args);
+			break;
+		case 'x':
+			*count += print_hex(args, 0);
+			break;
+		case 'X':
+			*count += print_hex(args, 1);
 			break;
 		case 'p':
-			/*count += print_address(va_arg(args, char*));*/
+			*count += print_pointer(args);
+			break;
+		case 'S':
+			return (print_string(args));
+		case 'R':
+			/*count += *print_rot13(va_arg(args, flags_t *ptr));*/
 			break;
 		default:
 			return (0);  /*Unsupported format specifier*/

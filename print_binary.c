@@ -1,36 +1,41 @@
-#include <limits.h>
-#include <stdlib.h>
 #include "main.h"
-#include <stdio.h>
 
 /**
-  * print_binary - a function to convert unsigned
-  * integers to binary
-  * @n: an unsigned int
-  * Return: 0 or a binary
-  */
-
-char *print_binary(unsigned int n)
+ * print_binary - Handles %b specifier (converts unsigned int to binary)
+ * @args: The va_list of arguments
+ * Return: The number of characters printed
+ */
+int print_binary(va_list args)
 {
-	char *binary;
-	unsigned int i;
+    unsigned int num = va_arg(args, unsigned int);
+    int count = 0;
 
-	binary = malloc(sizeof(char) * (sizeof(unsigned int) * CHAR_BIT + 1));
+    if (num == 0)
+    {
+        _putchar('0');
+        count++;
+        return count;
+    }
 
-	if (binary == NULL)
-	{
-		return (NULL);
-	}
-	i = 0;
+    count += print_binary_recursive(num);
 
-	while (n > 0)
-	{
-	binary[i++] = (n & 1) + '0';
-	n >>= 1;
-	}
+    return count;
+}
 
-	binary[i] = '\0';
-	puts(binary);
+/**
+ * print_binary_recursive - Recursively prints binary representation of a number
+ * @n: The unsigned int to be printed
+ * Return: The number of characters printed
+ */
+int print_binary_recursive(unsigned int n)
+{
+    int count = 0;
 
-	return (binary);
+    if (n / 2 != 0)
+        count += print_binary_recursive(n / 2);
+
+    _putchar((n % 2) + '0');
+    count++;
+
+    return count;
 }
