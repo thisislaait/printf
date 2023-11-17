@@ -38,6 +38,9 @@ int handle_format(char specifier, va_list args, int *count)
 		case 'X':
 			*count += print_hex(args, 1);
 			break;
+		case 'p':
+			*count += print_pointer(args);
+			break;
 		case 'S':
 			return (print_string(args));
 		case 'R':
