@@ -6,20 +6,20 @@
  * Return: The number of characters printed
  */
 int print_binary(va_list args)
-{
-    unsigned int num = va_arg(args, unsigned int);
-    int count = 0;
+{   
+        unsigned int num = va_arg(args, unsigned int);
+        int count = 0;
 
-    if (num == 0)
-    {
-        _putchar('0');
-        count++;
-        return count;
-    }
+        if (num == 0)
+        {
+            _putchar('0');
+            count++;
+            return (count);
+        }
 
-    count += print_binary_recursive(num);
+        count += print_binary_recursive(num);
 
-    return count;
+        return (count);
 }
 
 /**
@@ -29,13 +29,13 @@ int print_binary(va_list args)
  */
 int print_binary_recursive(unsigned int n)
 {
-    int count = 0;
+        int count = 0;
 
-    if (n / 2 != 0)
-        count += print_binary_recursive(n / 2);
+        if (n / 2 != 0)
+            count += print_binary_recursive(n / 2);
 
-    _putchar((n % 2) + '0');
-    count++;
+        _putchar((n % 2) + '0');
+        count++;
 
-    return count;
+        return (count);
 }
