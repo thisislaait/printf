@@ -7,16 +7,17 @@
  * @specifier: The format specifier character
  * @args: The va_list of arguments
  * @count: Pointer to the count of characters printed
+ * @flags: Pointer to the flags_t structure
  * Return: 1 if specifier is handled, 0 otherwise
  */
-int handle_format(char specifier, va_list args, int *count)
+int handle_format(char specifier, va_list args, int *count, flags_t *flags)
 {
 	switch (specifier)
 	{
 		case 'c':
-			return (print_char(args, count));
+			return (print_char(args, count, flags));
 		case 's':
-			return (print_str(args, count));
+			return (print_str(args, count, flags));
 		case '%':
 			return (print_percent(count));
 		case 'b':

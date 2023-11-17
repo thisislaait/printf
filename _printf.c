@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 {
 		int count = 0;
 		va_list args;
+		flags_t flags;
 
 		if (format == NULL)
 			return (-1);
@@ -21,7 +22,7 @@ int _printf(const char *format, ...)
 		va_start(args, format);
 		while (*format)
 		{
-			if (*format == '%' && handle_format(*(format + 1), args, &count))
+			if (*format == '%' && handle_format(*(format + 1), args, &count, &flags))
 			{
 				format += 2; /* Move to the next character */
 			}

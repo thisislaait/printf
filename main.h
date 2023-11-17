@@ -2,7 +2,9 @@
 #define MAIN_H
 
 #include <stdarg.h>
+#include <stdint.h>
 #include <stdlib.h>
+#include <inttypes.h>
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -41,11 +43,11 @@ extern const char hex_digits_lowercase[];
 
 
 /* Function prototype for handling specifiers */
-int handle_format(char specifier, va_list args, int *count);
+int handle_format(char specifier, va_list args, int *count, flags_t *flags);
 
 /* Function prototypes for specifier logic */
-int print_char(va_list args, int *count);
-int print_str(va_list args, int *count);
+int print_char(va_list args, int *count, flags_t *flags);
+int print_str(va_list args, int *count, flags_t *flags);
 int print_percent(int *count);
 int print_int(va_list args);
 int print_number(int n);
