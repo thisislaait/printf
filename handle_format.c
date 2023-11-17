@@ -38,6 +38,8 @@ int handle_format(char specifier, va_list args, int *count)
 		case 'X':
 			*count += print_hex(args, 1);
 			break;
+		case 'S':
+			return (print_string(args));
 		case 'R':
 			/*count += *print_rot13(va_arg(args, flags_t *ptr));*/
 			break;
