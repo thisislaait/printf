@@ -1,37 +1,30 @@
 #include "main.h"
-#include <limits.h>
 
 /**
- * print_int - Handles %d and %i specifiers
- * @args: The va_list of arguments
- * Return: The number of characters printed
+ * print_int - Print an integer
+ * @n: The integer to be printed
+ *
+ * Return: Number of characters printed
  */
-int print_int(va_list args)
+int print_int(int n)
 {
-    int num = va_arg(args, int);
-    int count = 0;
-
-    /* Handle negative numbers */
-    if (num < 0)
-    {
-        _putchar('-');
-        count++;
-        /* Avoid overflow when negating INT_MIN */
-        if (num == INT_MIN)
+        int count = 0;
+        /* Handle negative numbers */
+        if (n < 0)
         {
-            count += print_number(-(num + 1)); /* Negate (num + 1) to avoid overflow */
-            _putchar('8'); /* Print the last digit of INT_MIN (8) separately */
-            count++;
-            return (count);
+                count += _putchar('-');
+                n = -n;
+        }
+        /* Handle single-digit numbers */
+        if (n < 10)
+        {
+                count += _putchar(n + '0');
         }
         else
         {
-            num = -num;
+                /* Recursively print each digit */
+                count += print_int(n / 10);
+                count += _putchar(n % 10 + '0');
         }
-    }
-
-    /* Print the number */
-    count += print_number(num);
-
-    return (count);
+        return (count);
 }
