@@ -9,5 +9,5 @@ int print_percent(int *count)
 {
 	*count += _putchar('%');
 
-	return (1);
+	return (0);
 }
