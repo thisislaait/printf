@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stddef.h>
 
 /**
  * _printf - Custom implementation of the printf function.
@@ -15,7 +16,7 @@ int _printf(const char *format, ...)
 
 		if (format == NULL)
 			return (-1);
-			
+
 		count = 0;
 		va_start(args, format);
 		while (*format)

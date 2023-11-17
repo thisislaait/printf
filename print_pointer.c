@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdint.h>
 #include <stdio.h>
 
 /**
@@ -20,7 +21,7 @@ int print_pointer(va_list args)
         return (count);
     }
 
-    count += print_hex_recursive((unsigned long)ptr, 1);
+    count += print_hex_recursive((uintptr_t)ptr, 1);
 
     return (count);
 }
