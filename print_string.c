@@ -21,9 +21,7 @@ int print_string(va_list args)
     {
         if (*str < 32 || *str >= 127)
         {
-            count += _putchar('\\');
-            count += _putchar('x');
-            count += print_hex_recursive(*str, 1); /* Print ASCII code in hexadecimal (uppercase)*/
+            count += print_non_printable(*str);
         }
         else
         {
@@ -33,5 +31,19 @@ int print_string(va_list args)
         str++;
     }
 
+    return (count);
+}
+
+/**
+ * print_non_printable - Prints non-printable character in hexadecimal format
+ * @ch: The character to be printed
+ * Return: The number of characters printed
+ */
+int print_non_printable(char ch)
+{
+    int count = 0;
+    count += _putchar('\\');
+    count += _putchar('x');
+    count += print_hex_recursive(ch, 1); /* Print ASCII code in hexadecimal (uppercase) */
     return (count);
 }

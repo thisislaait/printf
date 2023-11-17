@@ -49,5 +49,5 @@ int print_hex_recursive(unsigned int n, int uppercase)
 
     count++;
 
-    return count;
+    return (count);
 }

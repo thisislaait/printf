@@ -13,7 +13,14 @@ int print_pointer(va_list args)
 
     count += _putchar('0');
     count += _putchar('x');
-    count += print_hex_recursive((unsigned long)ptr, 1); /* Print pointer address in hexadecimal (uppercase) */
+
+    if (ptr == NULL)
+    {
+        count += _putchar('0');
+        return (count);
+    }
+
+    count += print_hex_recursive((unsigned long)ptr, 1);
 
     return (count);
 }

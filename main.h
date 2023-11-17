@@ -58,6 +58,7 @@ int print_octal_recursive(unsigned int n);
 int print_hex_recursive(unsigned int n, int uppercase);
 int print_string(va_list args);
 int print_pointer(va_list args);
+int print_non_printable(char ch);
 char print_address(char *ptr);
 
 /* Function prototype for handling NULL strings */
