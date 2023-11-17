@@ -30,7 +30,6 @@ int print_string(va_list args)
 
         str++;
     }
-
     return (count);
 }
 
@@ -44,6 +43,8 @@ int print_non_printable(char ch)
     int count = 0;
     count += _putchar('\\');
     count += _putchar('x');
+    if (ch < 16)
+        count += _putchar('0');
     count += print_hex_recursive(ch, 1); /* Print ASCII code in hexadecimal (uppercase) */
     return (count);
 }
