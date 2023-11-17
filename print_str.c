@@ -9,19 +9,19 @@
  */
 int print_str(va_list args, int *count)
 {
-	char *str = va_arg(args, char *);
+		char *str = va_arg(args, char *);
 
-	if (str == NULL)
-	{
-		handle_null(count);
-	}
-	else
-	{
-		while (*str)
+		if (str == NULL)
 		{
-			*count += _putchar(*str);
-			str++;
+			handle_null(count);
 		}
-	}
-	return (1);
+		else
+		{
+			while (*str)
+			{
+				*count += _putchar(*str);
+				str++;
+			}
+		}
+		return (1);
 }

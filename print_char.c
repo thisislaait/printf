@@ -10,7 +10,7 @@
 
 int print_char(va_list args, int *count)
 {
-	char c = va_arg(args, int);
-	*count += _putchar(c);
-	return (1);
+		char c = va_arg(args, int);
+		*count += _putchar(c);
+		return (1);
 }

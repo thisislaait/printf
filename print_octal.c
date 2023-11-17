@@ -7,12 +7,11 @@
  */
 int print_octal(va_list args)
 {
-    unsigned int num = va_arg(args, unsigned int);
-    int count = 0;
-
-    count += print_octal_recursive(num);
-
-    return (count);
+        unsigned int num = va_arg(args, unsigned int);
+        int count = 0;  
+        
+        count += print_octal_recursive(num);
+        return (count);
 }
 
 /**
@@ -22,13 +21,13 @@ int print_octal(va_list args)
  */
 int print_octal_recursive(unsigned int n)
 {
-    int count = 0;
+        int count = 0;
+        
+        if (n / 8 != 0)
+            count += print_octal_recursive(n / 8);
 
-    if (n / 8 != 0)
-        count += print_octal_recursive(n / 8);
+        _putchar((n % 8) + '0');
+        count++;
 
-    _putchar((n % 8) + '0');
-    count++;
-
-    return (count);
+        return (count);
 }

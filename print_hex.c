@@ -8,19 +8,19 @@
  */
 int print_hex(va_list args, int uppercase)
 {
-    unsigned int num = va_arg(args, unsigned int);
-    int count = 0;
-    /* Handle the case when num is 0 */
-    if (num == 0)
-    {
-        _putchar('0');
-        count++;
-        return count;
-    }
+        unsigned int num = va_arg(args, unsigned int);
+        int count = 0;
+        /* Handle the case when num is 0 */
+        if (num == 0)
+        {
+            _putchar('0');
+            count++;
+            return count;
+        }
 
-    count += print_hex_recursive(num, uppercase);
+        count += print_hex_recursive(num, uppercase);
 
-    return (count);
+        return (count);
 }
 
 /**
@@ -35,19 +35,19 @@ const char hex_digits_lowercase[] = "0123456789abcdef";
 
 int print_hex_recursive(unsigned int n, int uppercase)
 {
-    int count = 0;
+        int count = 0;
     
-    /* Recursively print digits */
-    if (n / 16 != 0)
-        count += print_hex_recursive(n / 16, uppercase);
+        /* Recursively print digits */
+        if (n / 16 != 0)
+            count += print_hex_recursive(n / 16, uppercase);
 
-    /* Print the current digit */
-    if (uppercase)
-        _putchar(hex_digits_uppercase[n % 16]);
-    else
-        _putchar(hex_digits_lowercase[n % 16]);
+        /* Print the current digit */
+        if (uppercase)
+            _putchar(hex_digits_uppercase[n % 16]);
+        else
+            _putchar(hex_digits_lowercase[n % 16]);
 
-    count++;
+        count++;
 
-    return (count);
+        return (count);
 }
