@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * widthSurveyor - Calculates the width for printing
  * @format: Formatted string in which to print the arguments.
