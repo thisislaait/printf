@@ -43,9 +43,9 @@ int _printf(const char *format, ...);
 int outputMaestro(const char *fmt, int *i,
 	va_list list, char buffer[], int flags, int width, int precision, int size);
 
-/****************** FUNCTIONS ******************/
+/****************** FUNCTION PROTOTYPES ******************/
 
-/* Functions to output chars and strings */
+/* Function prototypes for  chars and strings */
 int print_char(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 int print_string(va_list types, char buffer[],
@@ -53,7 +53,7 @@ int print_string(va_list types, char buffer[],
 int print_percent(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
-/* Functions to output numbers */
+/* Function prototype to output numbers */
 int print_int(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 int print_binary(va_list types, char buffer[],
@@ -70,21 +70,21 @@ int print_hexa_upper(va_list types, char buffer[],
 int print_hexa(va_list types, char map_to[],
 	char buffer[], int flags, char flag_ch, int width, int precision, int size);
 
-/* Function to output non-outputable characters */
+/* Function prototype for non-printable */
 int print_non_printable(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
-/* Function to output memory address */
+/* Function prototype for memory address */
 int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
-/* Functions to manage other specifiers */
+/* Function prototype for handling other specifiers */
 int symbolGuidanceEngine(const char *format, int *i);
 int widthSurveyor(const char *format, int *i, va_list list);
 int exactCalculationUnit(const char *format, int *i, va_list list);
 int dimensionDetective(const char *format, int *i);
 
-/* Function to output string in reverse */
+/* Function prototype string in reverse */
 int print_reverse(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
@@ -92,7 +92,7 @@ int print_reverse(va_list types, char buffer[],
 int print_rot13string(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
-/* Width manager */
+/* Width manager prototypes */
 int handle_write_char(char c, char buffer[],
 	int flags, int width, int precision, int size);
 int write_number(int is_positive, int ind, char buffer[],
