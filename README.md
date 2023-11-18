@@ -19,7 +19,7 @@ This project is a part of the ALX Software Engineering track and is the first pr
 - Custom conversion specifiers:
   - `S` for printing strings with non-printable characters.
   - `r` for printing reversed strings.
-  - `R` for printing ROT13'ed strings.
+  - `R` for printing ROT13'ed strings..
 - Additional formatting options:
   - `-` for left-justifying output.
   - `+`, `space`, `#`, and `0` for various formatting options.
