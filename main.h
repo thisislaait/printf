@@ -40,7 +40,7 @@ struct fmt
 typedef struct fmt fmt_t;
 
 int _printf(const char *format, ...);
-int printOrchestrator(const char *fmt, int *i,
+int outputMaestro(const char *fmt, int *i,
 	va_list list, char buffer[], int flags, int width, int precision, int size);
 
 /****************** FUNCTIONS ******************/
@@ -79,10 +79,10 @@ int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
 /* Functions to manage other specifiers */
-int flagInterpreter(const char *format, int *i);
-int breadthAnalyser(const char *format, int *i, va_list list);
-int preciseCalcModule(const char *format, int *i, va_list list);
-int sizeDecipherUnit(const char *format, int *i);
+int symbolGuidanceEngine(const char *format, int *i);
+int widthSurveyor(const char *format, int *i, va_list list);
+int exactCalculationUnit(const char *format, int *i, va_list list);
+int dimensionDetective(const char *format, int *i);
 
 /* Function to output string in reverse */
 int print_reverse(va_list types, char buffer[],
