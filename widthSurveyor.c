@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * widthSurveyor - Calculates the width for printing
- * @format: Formatted string in which to print the arguments.
- * @i: List of arguments to be printed.
- * @list: list of arguments.
+ * widthSurveyor - Compute the printing width based on arguments
+ * @i: Arguments to be printed.
+ * @list: List of arguments.
+ * @format: Formatted string for output.
  *
- * Return: width.
+ * Return: Calculated printing width.
  */
 int widthSurveyor(const char *format, int *i, va_list list)
 {

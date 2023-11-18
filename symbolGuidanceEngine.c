@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * symbolGuidanceEngine - Calculates active flags
- * @format: Formatted string in which to print the arguments
- * @i: Take a parameter
+ * symbolGuidanceEngine - Compute active flags for formatting
+ * @i: Parameter to be considered
+ * @format: Formatted string for printing the arguments
  *
- * Return: Flags:
+ * Return: Computed flags.
  */
 int symbolGuidanceEngine(const char *format, int *i)
 {

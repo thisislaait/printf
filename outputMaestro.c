@@ -1,15 +1,15 @@
 #include "main.h"
 
 /**
- * outputMaestro - Prints an argument based on its type
- * @fmt: Formatted string in which to print the arguments.
- * @ind: Ind.
+ * outputMaestro - Print an argument based on its type
  * @list: List of arguments to be printed.
- * @buffer: Buffer array to handle print.
- * @flags: Calculates active flags
- * @width: Get width.
- * @precision: Precision specification
- * @size: Size specifier
+ * @buffer: Buffer array for handling output.
+ * @width: Specified width.
+ * @precision: Precision specifier.
+ * @size: Size indicator.
+ * @flags: Computed formatting flags.
+ * @fmt: Formatted string for printing the arguments.
+ * @ind: Ind.
  *
  * Return: 1 or 2;
  */

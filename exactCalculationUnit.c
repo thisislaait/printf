@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * exactCalculationUnit - Calculates the precision for printing
- * @format: Formatted string in which to print the arguments
+ * exactCalculationUnit - Computes the precision for printing
  * @i: List of arguments to be printed.
- * @list: list of arguments.
+ * @list: List of arguments.
+ * @format: Formatted string for printing the arguments
  *
- * Return: Precision.
+ * Return: Calculated precision.
  */
 int exactCalculationUnit(const char *format, int *i, va_list list)
 {
