@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * dimensionDetective - Calculates the size to cast the argument
- * @format: Formatted string in which to print the arguments
+ * dimensionDetective - Determines the necessary size for casting the argument
  * @i: List of arguments to be printed.
+ * @format: Formatted string for printing the arguments
  *
  * Return: Precision.
  */
